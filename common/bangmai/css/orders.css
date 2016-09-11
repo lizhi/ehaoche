@@ -1,0 +1,116 @@
+body {
+    background: #ffffff;
+}
+
+.head {
+    position: relative;
+    height: 150px;
+    background-image: url(../image/head_bg.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.avatar {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80px;
+    height: 80px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.nickname {
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    font-size: 1em;
+    color: #ffffff;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 80px;
+    text-align: center;
+}
+
+.orders {
+    position: absolute;
+    top: 35%;
+    right: 10%;
+    color: #ffffff;
+    font-size: 1.2em;
+}
+
+.orders span {
+    color: gold;
+    font-size: 1.3em;
+}
+
+.bizOrders {
+    width: 100%;
+}
+
+.orderItem {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    margin: 0px 0px;
+    font-size: 0.8em;
+    color: #000;
+}
+
+.orderItem img {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    left: 4%;
+    margin-top: -35px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+}
+
+.orderID {
+    position: absolute;
+    top: 10%;
+    left: 25%;
+}
+
+.orderNickname {
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 160px;
+}
+
+.orderTel {
+    position: absolute;
+    top: 65%;
+    left: 25%;
+}
+
+.orderStatus {
+    position: absolute;
+    top: 30%;
+    right: 5%;
+    color: orange;
+}
+
+.orderPay {
+    position: absolute;
+    top: 65%;
+    right: 5%;
+}
+
+.orderHr {
+    border: none;
+    height: 1px;
+    background: lightgray;
+    margin: 0;
+}

@@ -1,0 +1,125 @@
+body{
+    background: #ffffff;
+}
+.head{
+    position: relative;
+    height: 150px;
+    background-image: url(../image/head_bg.jpg);
+}
+.avatar{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80px;
+    height: 80px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.nickname{
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    font-size: 1em;
+    color: #ffffff;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 80px;
+    text-align: center;
+}
+.number {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    color: #ffffff;
+    font-size: 1.2em;
+}
+.number span {
+    color: gold;
+    font-size: 1.3em;
+}
+
+.level{
+    position: absolute;
+    right: 10%;
+    top: 20%;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 5px;
+    padding: 3px 3px;
+}
+.level span{
+    color: gold;
+}
+.verify{
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    border: none;
+    background: lightgray;
+    font-size: 2rem;
+    color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 5px;
+    padding: 3px 3px;
+}
+
+.content {
+    width: 100%;
+}
+
+.bizInfo {
+    width: 100%;
+    position: relative;
+    font-size: 1.5rem;
+    background: white;
+    border: 1px solid lightgray;
+}
+
+.item {
+    position: relative;
+    height: 2.5rem;
+    margin: -1px 15px 20px;
+}
+
+.divider {
+    border: none;
+    border-bottom: 1px solid lightgray;
+    margin: 0;
+    padding: 0;
+}
+
+.item1 {
+    display: inline-block;
+    margin-top: 10px;
+
+}
+
+.item2 {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.submitBtn {
+    width: 100%;
+    height: 45px;
+    line-height: 40px;
+    background: #54C2FD;
+    border: 2px solid #54C2FD;
+    text-align: center;
+    color: #fafafa;
+    font-size: 2rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>E 好车分享返利指南</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <script src="{pigcms::RES}/bangmai/js/rem.js"></script>
+
+    <link rel="stylesheet" href="{pigcms::RES}/bangmai/css/app_reset.css">
+    <link rel="stylesheet" href="{pigcms::RES}/bangmai/css/main.css">
+</head>
+<body>
+<div class="sell-question guide">
+    <h2>分享返利指南</h2>
+    <img src="{pigcms::RES}/bangmai/image/banner4.png">
+    <div class="guide-list">将您个人专属二维码<span class="guide-red">分享</span>到朋友圈或分享给朋友，<span class="guide-red">扫码关注后即成为您的会员</span>。</div>
+    <div class="guide-code" style="position:relative;">
+        <img src="{pigcms::RES}/bangmai/image/code.png">
+        <img style="position: absolute;top: 10px;left: 0;width: 50%;height: 80%;" src="./wximages/{pigcms:$codeUrl}">
+    </div>
+    <div class="guide-list">这是一个“ <span class="guide-red">汽车服务</span>+<span class="guide-red">分享返利</span> ”的创新模式，E好车提供优质的服务并为您准备了丰厚的奖励。</div>
+    <div class="guide-code"><img src="{pigcms::RES}/bangmai/image/info.png"></div>
+    <div class="guide-list guide-list2">以帮卖二手车服务为例，会员在公众平台申请服务后，由平台的专业服务团队跟进并完成后，产生了服务费1000元，那么，直接分享的会员申请服务，分享者可获得奖励<span class="guide-red">300-500元</span> （最高50%）。如果是间接分享的会员申请服务，分享者可获得奖励<span class="guide-red">100元</span> （固定10%）。</div>
+</div>
+<script src="{pigcms::RES}/bangmai/js/fastclick.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+
+    wx.config({
+        debug: false,
+        appId: '{pigcms:$appId}',
+        timestamp: '{pigcms:$timestamp}',
+        nonceStr: '{pigcms:$nonceStr}',
+        signature: '{pigcms:$signature}',
+        jsApiList: [
+            'hideMenuItems'
+        ]
+    });
+    wx.ready(function () {
+        wx.hideMenuItems({
+            menuList: ["menuItem:copyUrl",
+                "menuItem:openWithSafari",
+                "menuItem:share:email",
+                "menuItem:openWithQQBrowser"
+            ] // 要显示的菜单项，所有menu项见附录3
+        });
+    });
+</script>
+</body>
+</html>

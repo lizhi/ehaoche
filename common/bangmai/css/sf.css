@@ -1,0 +1,43 @@
+.sf_content{
+	padding: 10px 20px;
+}
+.sf_img{
+	width: 100%;
+}
+.sf_img img{
+	width: 100%;
+}
+.sf_text{
+	/*width: 100%;*/
+	font-size: 1.4rem;
+	padding: 10px 10px;
+}
+.sf_input input{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	border-radius: 5px;
+	color: black;
+	border: 2px solid #eee;
+	font-size: 2rem;
+	margin-bottom: 20px;
+}
+.sf_button{
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	border-radius: 5px;
+	color: #fefefe;
+	background: #EA5125;
+	border: 2px solid #EA5125;
+	font-size: 2rem;
+	font-weight: bold;
+}
+.sf_p{
+	text-align: center;
+	color:#777;
+	font-size: 1.2rem;
+	padding:5px 0px;
+}

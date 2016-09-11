@@ -1,0 +1,104 @@
+body{
+    background: #ffffff;
+}
+.head{
+    position: relative;
+    height: 150px;
+    background-image: url(../image/head_bg.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.avatar{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80px;
+    height: 80px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.nickname{
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    font-size: 1em;
+    color: #ffffff;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 80px;
+    text-align: center;
+}
+.number {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    color: #ffffff;
+    font-size: 1.2em;
+}
+.number span {
+    color: gold;
+    font-size: 1.3em;
+}
+
+.apply{
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    border: none;
+    background-color: transparent;
+    font-size: 1.2em;
+    color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 5px;
+    padding: 3px 3px;
+}
+
+.list{
+    width: 100%;
+}
+
+.payItem{
+    width: 100%;
+    height: 60px;
+    position: relative;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    margin: -1px 0px;
+}
+
+.bizName{
+    position: absolute;
+    left: 5%;
+    top: 10%;
+    font-size: 0.8em;
+
+}
+.time{
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    font-size: 0.8em;
+}
+.pay{
+    position: absolute;
+    right: 5%;
+    top: 10%;
+    font-size: 0.8em;
+}
+.pay span{
+    color: red;
+}
+.client_nickname{
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    font-size: 0.8em;
+    width: 150px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: right;
+}

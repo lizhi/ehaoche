@@ -1,0 +1,118 @@
+body{
+    background: #DDDDDD;
+}
+.head{
+    position: relative;
+    height: 150px;
+    background-image: url(../image/head_bg.jpg);
+    background-repeat: no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+}
+.avatar{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80px;
+    height: 80px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.qr{
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 110px;
+    height: 110px;
+}
+.nickname{
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    font-size: 1em;
+    color: #ffffff;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 80px;
+    text-align: center;
+}
+.bizCount{
+    width: 100%;
+    position: relative;
+    background-color: #FFFFFF;
+    /*height: 180px;*/
+}
+.bizItem{
+    line-height: 3em;
+    padding: 0 15px;
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    margin: -1px 0px;
+}
+.bizImg{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+.arrow{
+    position: absolute;
+    right: 5%;
+    color: lightgray;
+}
+.high-light{
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-bottom: 3rem;
+    background-color: #FFFFFF;
+}
+.thead th{
+    /*border-right: 1px solid #000000;*/
+    height: 5rem;
+    /*font-size: 0.9em;*/
+}
+.tbody td{
+    /*border-right: 1px solid #000000;*/
+    height: 4rem;
+    color: gold;
+    font-size: 1.3em;
+    text-align: center;
+}
+.tbody a{
+    color: gold;
+}
+.hr1{
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 15px;
+    border: none;
+    background-color: #DDDDDD;
+}
+.mid{
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    color: #DDDDDD;
+    font-size: 1.4rem;
+}
+.mtype{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    color: #DDDDDD;
+    font-size: 1.4rem;
+}
+.mtype a{
+    color: #FF0000;
+}
+.mlevel{
+    position: absolute;
+    top: 60%;
+    left: 40%;
+    color: #DDDDDD;
+    font-size: 1.4rem;
+}

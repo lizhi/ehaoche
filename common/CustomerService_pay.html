@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>支付订单</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <script src="{pigcms::RES}/bangmai/js/rem.js"></script>
+
+    <link rel="stylesheet" href="{pigcms::RES}/bangmai/css/app_reset.css">
+    <link rel="stylesheet" href="{pigcms::RES}/bangmai/css/main.css">
+    <link rel="stylesheet" href="{pigcms::RES}/bangmai/css/base.css">
+</head>
+<body>
+<div class="pay">
+    <div class="price">
+        <span>实付款</span>
+        <span class="num">￥{pigcms:$price}</span>
+    </div>
+    <div class="pay-choose">
+        <div class="titlt">选择支付方式</div>
+        <ul>
+            <li>
+                <i class="iconfont-all get">&#xe604;</i>
+                <span>微信</span>
+                <em class="iconfont-all no-get">&#xe607;</em>
+            </li>
+            <li hidden>
+                <i class="iconfont-all get zf">&#xe600;</i>
+                <span>支付宝</span>
+                <em class="iconfont-all no-get">&#xe607;</em>
+            </li>
+        </ul>
+    </div>
+    <div class="btn">支付</div>
+</div>
+<script src="{pigcms::RES}/bangmai/js/fastclick.js"></script>
+<script src="{pigcms::RES}/bangmai/js/jquery.min.js"></script>
+<script src="{pigcms::RES}/bangmai/js/base.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    wx.config({
+        debug: false,
+        appId: '{pigcms:$appId}',
+        timestamp: '{pigcms:$timestamp}',
+        nonceStr: '{pigcms:$nonceStr}',
+        signature: '{pigcms:$signature}',
+        jsApiList: [
+            'chooseWXPay'
+        ]
+    });
+
+    function pay() {
+//        wx.chooseWXPay({
+//            timeStamp: '{pigcms:$order[timeStamp]}',
+//            nonceStr: '{pigcms:$order[nonceStr]}',
+//            package: '{pigcms:$order[package]}',
+//            signType: 'MD5',
+//            paySign: '{pigcms:$order[paySign]}',
+//            success: function (res) {
+//                alert(res);
+//            }
+//        });
+        WeixinJSBridge.invoke(
+                'getBrandWCPayRequest',
+        <?php echo $order; ?>,
+        function(res){
+            WeixinJSBridge.log(res.err_msg);
+            alert(res.err_code+res.err_desc+res.err_msg);
+        }
+    );
+    }
+
+
+    $('.btn').on('click', pay);
+</script>
+</body>
+</html>

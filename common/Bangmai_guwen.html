@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html class="ks-webkit537 ks-webkit ks-chrome40 ks-chrome">
+<head>
+<title>买车顾问</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" CONTENT="-1">           
+<meta http-equiv="Cache-Control" CONTENT="no-cache">           
+<meta http-equiv="Pragma" CONTENT="no-cache">       
+<link rel="stylesheet" href="{pigcms::RES}/bangmai/css/base1.css">
+</head>
+<body style="background:#f8f8f8">
+	<section class="step-box">
+    	<div><img src="{pigcms::RES}/bangmai/images/top.jpg"></div>
+    </section>
+	<section class="banner"><img src="{pigcms::RES}/bangmai/images/banner2.jpg"></section>
+    
+    <section class="form-box2">
+    	<h3>预约买车需求</h3>
+		<form action="" id="commentsave" method="post" >
+        <ul>
+        	<li>
+            	<label class="lab">姓名</label>
+                <div class="lab-bd">
+            		<input id="user" name="realname" type="text" class="ipt" placeholder="请输入您的姓名">
+                </div>
+            </li>
+            <li>
+            	<label class="lab">联系方式</label>
+                <div class="lab-bd">
+            		<input id="mobile" name="telphone" type="text" class="ipt" placeholder="请填写手机号码">
+                </div>
+            </li>
+            <li>
+            	<label class="lab">备注</label>
+                <div class="lab-bd">
+            		<textarea name="remark" class="txtare" placeholder="可以输入您的品牌价格等相关要求"></textarea>
+                </div>
+            </li>
+        </ul>
+        <div class="bd">
+            <p class="tip">您的信息为保密信息绝无泄露和骚扰</p>
+            <input id="sub_btn" class="btn" type="button" value="立即提交">
+            <!--<div class="tel">或直接咨询<em>400-400-8888</em></div>-->
+        </div>
+		</form>
+    </section>
+    
+    <section class="step-box">
+    	<div><img src="{pigcms::RES}/bangmai/images/step1.jpg"></div>
+    </section>
+  <section class="dialog-box hide" style="display:none;">
+    <div class="dialog-hd"></div>
+    <div class="dialog-bd">
+        <div class="hd">请输入姓名</div>
+        <div class="bd">好</div>
+    </div>
+</section>
+<script src="{pigcms::RES}/bangmai/js/jquery.js"></script>
+<script>
+
+$(function(){
+	$.validate.init();
+})
+
+//表单验证弹框
+$.validate={
+	init: function(){
+		var w = $(window).width();
+		var h = $(window).height();	
+		$('.dialog-hd').width(w).height(h);
+		
+		$('#sub_btn').click(function(e) {
+	
+			var _etip=$('.dialog-bd .hd');
+			
+			var userEle=$('#user');
+			var userVal=$.trim(userEle.val());
+			var useReg = /^([\u4e00-\u9fa5]+|([a-z]+\s?)+)$/;
+			
+			var mobileEle=$('#mobile');
+			var mobileVal=$.trim(mobileEle.val());
+			var mobileReg= /^0{0,1}(13[0-9]|15[0-9]|18[0-9])[0-9]{8}$/;
+
+			if(userVal==0){
+				$('.dialog-box').fadeIn(100);
+				_etip.text('请输入姓名！');
+				return false;	
+			}
+			
+			if(useReg.test(userVal)==false){
+				$('.dialog-box').fadeIn(100);	
+				_etip.text('请输入真实姓名！');
+				return false;	
+			}
+			
+			if(mobileVal==0){
+				$('.dialog-box').fadeIn(100);
+				_etip.text('请输入手机号码！');
+				return false;	
+			}
+			
+			if(mobileReg.test(mobileVal)==false){
+				$('.dialog-box').fadeIn(100);	
+				_etip.text('请输入正确的手机号码！');
+				return false;	
+			}
+			
+			$.post("{pigcms::U('Bangmai/actadd',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}",$("#commentsave").serialize(),function(data){
+   $('.dialog-box').fadeIn(100);
+			_etip.text('提交成功');
+			return false;	
+ });
+			//$('.dialog-box').fadeIn(100);
+			//_etip.text('谢谢');
+
+		});
+		
+		$('.dialog-bd .bd').click(function(){
+			$(this).parents('.dialog-box').hide();	
+		});
+	}	
+}
+</script>
+<!--<script src="{pigcms::RES}/bangmai/js/validate.js"></script>  -->
+    
+</body>
+
+</html>

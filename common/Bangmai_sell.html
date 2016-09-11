@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>我要卖车</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <script src="{pigcms::RES}/bangmai/js/rem.js"></script>
+
+    <link rel="stylesheet" href="{pigcms::RES}/bangmai/css/app_reset.css">
+    <link rel="stylesheet" href="{pigcms::RES}/bangmai/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{pigcms::RES}/bangmai/css/weui.min.css"/>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="{pigcms::RES}/bangmai/js/jquery.js"></script>
+</head>
+<body>
+<div class="sell-banner">
+    <img src="{pigcms::RES}/bangmai/image/banner3.png">
+</div>
+<div class="sell-phone">
+    <div class="phone-input">
+        <input id="telphone" name="telphone" type="text" placeholder="填写您的手机">
+    </div>
+    <div id="subbtn">预约卖车</div>
+</div>
+<div class="sell-phone-price">
+    <a style="text-decoration: none;color: #EA5125" href="http://www.che300.com/ehc"> 点我估价 > </a>
+</div>
+<div class="sell-list">
+    <ul>
+        <li>
+            <div>
+                <i class="ico-get"><img src="{pigcms::RES}/bangmai/image/get.png"></i>
+                <span>在线预约</span>
+            </div>
+            <div class="sell-list-text">24小时内上门评估</div>
+        </li>
+        <li>
+            <div>
+                <i class="ico-get"><img src="{pigcms::RES}/bangmai/image/get.png"></i>
+                <span>上架交易</span>
+            </div>
+            <div class="sell-list-text">海量买家报价，卖出好价格</div>
+        </li>
+        <li>
+            <div>
+                <i class="ico-get"><img src="{pigcms::RES}/bangmai/image/get.png"></i>
+                <span>买家上门</span>
+            </div>
+            <div class="sell-list-text">靠谱买家上门看车成交率高</div>
+        </li>
+        <li>
+            <div>
+                <i class="ico-get"><img src="{pigcms::RES}/bangmai/image/get.png"></i>
+                <span>代办过户</span>
+            </div>
+            <div class="sell-list-text">省时省力，轻松卖车</div>
+        </li>
+    </ul>
+</div>
+<img src="{pigcms::RES}/bangmai/image/banner2.png">
+<div class="sell-question">
+    <p class="info-title">卖车问题</p>
+    <h4>1、如何卖车？</h4>
+    <div class="sell-bg">
+        Ｅ好车帮您找到靠谱买家，您可以自定卖车时间和卖出价格，不出门即可以把爱车卖出。
+    </div>
+    <h4>2、帮卖费用</h4>
+    <div class="sell-bg">
+        我们不向卖家收取任何费用，在成交之后向买家收取不超过2%的平台服务费，包括评估、代办、质保等增值服务费。
+    </div>
+    <h4>3、卖车准备什么材料</h4>
+    <ul>
+        <li>
+            <img src="{pigcms::RES}/bangmai/image/t-list1.png">
+        </li>
+        <li>
+            <img src="{pigcms::RES}/bangmai/image/t-list2.png">
+        </li>
+        <li>
+            <img src="{pigcms::RES}/bangmai/image/t-list3.png">
+        </li>
+        <li>
+            <img src="{pigcms::RES}/bangmai/image/t-list4.png">
+        </li>
+        <li>
+            <img src="{pigcms::RES}/bangmai/image/t-list5.png">
+        </li>
+        <li>
+            <img src="{pigcms::RES}/bangmai/image/t-list6.png">
+        </li>
+        <li>
+            <img src="{pigcms::RES}/bangmai/image/t-list7.png">
+        </li>
+        <li>
+            <img src="{pigcms::RES}/bangmai/image/t-list8.png">
+        </li>
+
+    </ul>
+</div>
+<div class="weui_dialog_alert" id="dialog2" style="display: none;">
+    <div class="weui_mask"></div>
+    <div class="weui_dialog">
+        <div class="weui_dialog_hd"><strong class="weui_dialog_title">温馨提示</strong></div>
+        <div class="weui_dialog_bd">弹窗内容，告知当前页面信息等</div>
+        <div class="weui_dialog_ft">
+            <a href="javascript:;" class="weui_btn_dialog primary">确定</a>
+        </div>
+    </div>
+</div>
+<script src="{pigcms::RES}/bangmai/js/fastclick.js"></script>
+<script type="text/javascript">
+
+    wx.config({
+        debug: false,
+        appId: '{pigcms:$appId}',
+        timestamp: '{pigcms:$timestamp}',
+        nonceStr: '{pigcms:$nonceStr}',
+        signature: '{pigcms:$signature}',
+        jsApiList: [
+            'hideMenuItems'
+        ]
+    });
+    wx.ready(function () {
+        wx.hideMenuItems({
+            menuList: ["menuItem:copyUrl",
+                "menuItem:openWithSafari",
+                "menuItem:share:email",
+                "menuItem:openWithQQBrowser"
+            ] // 要显示的菜单项，所有menu项见附录3
+        });
+    });
+
+
+    //正则表达——检查手机号码是否正确
+    function check_moblie() {
+        var tel = $('#telphone');
+        var sf_input = tel.val();
+        var telReg = !!sf_input.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/);
+        var telDiv = $('.phone-input');
+        if (telReg == false) {
+            telDiv.css('border', '1px solid red');
+            tel.focus();
+            return false;
+        } else {
+            telDiv.css('border', '1px solid #eee');
+            return true;
+        }
+    }
+
+    $('#subbtn').click(function () {
+        if (!check_moblie()) {
+            return;
+        }
+
+        $.post("{pigcms::U('Bangmai/add', array('type'=>'bangmai','token'=> $_GET['token'], 'openid'=>$openid))}",
+                {
+                    telphone: $("#telphone").val()
+                },
+                function (data, status) {
+                    if (data == "ok") {
+                        $('.weui_dialog_bd').html('提交成功!\n客服人员会稍后联系您，请保持手机畅通!');
+                        $('#dialog2').show().on('click', '.weui_btn_dialog', function () {
+                            $('#dialog2').off('click').hide();
+                        });
+                    } else {
+                        $('.weui_dialog_bd').html("系统繁忙，请稍后再试，谢谢!");
+                        $('#dialog2').show().on('click', '.weui_btn_dialog', function () {
+                            $('#dialog2').off('click').hide();
+                        });
+                    }
+                });
+    });
+
+</script>
+</body>
+</html>

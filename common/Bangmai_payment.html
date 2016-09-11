@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>我的返利</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name='apple-mobile-web-app-capable' content="yes"/>
+    <link rel="stylesheet" type="text/css" href="{pigcms::RES}/bangmai/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="{pigcms::RES}/bangmai/css/payment.css"/>
+    <script src="{pigcms::RES}/bangmai/js/jquery.js"></script>
+</head>
+<body>
+<div class="main">
+    <div class="head">
+        <a href="{pigcms::U('Bangmai/editmemberinfo', array('token'=>$_GET['token'], 'openid'=>$_GET['openid']))}">
+            <img class="avatar" src="{pigcms:$me.headimgurl}"/>
+        </a>
+
+        <p class="nickname">{pigcms:$me.nickname}</p>
+
+        <p class="number"><span>{pigcms:$income}</span>元</p>
+
+        <if condition="$url neq null">
+            <a href="{pigcms::U('Bangmai/add', array('token'=>$_GET['token'], 'openid'=>$me['openid'], 'type'=>'withdraw'))}">
+                <p class="apply">申请提现</p>
+                </a>
+        </if>
+
+        <if condition="$url eq null">
+            <p class="apply">无可提现金额</p>
+        </if>
+    </div><hr style="margin: auto;background-color: #DDDDDD;border: none;height: 15px">
+
+    <div class="list">
+        <volist name="biz" id="item">
+            <div class="payItem">
+                <p class="bizName">{pigcms:$item.bizName}</p>
+
+                <p class="time">{pigcms:$item.submit_time}</p>
+
+                <if condition="$item.bizName eq 提现">
+                <p class="pay"><span style="color: green;">-{pigcms:$item.pay}</span></p>
+                    <else />
+                    <p class="pay"><span>+{pigcms:$item.pay}</span></p>
+                </if>
+
+                <p class="client_nickname">来自{pigcms:$item.nickname}</p>
+            </div>
+        </volist>
+    </div>
+
+</div>
+<script>
+    <if condition="$url neq null"> $('.apply').css('background', 'orange');
+    </if>
+</script>
+</body>
+</html>

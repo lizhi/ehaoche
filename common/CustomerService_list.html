@@ -1,0 +1,22 @@
+<volist name="list" id="item">
+    <a href="/index.php?g=Wap&m=CustomerService&a=shopdetail&id={pigcms:$item.id}&token={pigcms:$item.token}">
+        <li>
+            <div class="list-img">
+                <img src="{pigcms:$item.logourl}">
+            </div>
+            <div class="list-info">
+                <div class="name">
+                    <span class="add">{pigcms:$item.name}</span>
+                    <span class="add-num">{pigcms:$item.distance}{pigcms:$item.unit}</span>
+                </div>
+                <div class="this-add">
+                    <span class="add">{pigcms:$item.address}</span>
+                    <span class="add-num">30元起</span>
+                </div>
+            </div>
+        </li>
+    </a>
+</volist>
+<if condition="count($list) eq 0">
+    <h4 style="text-align: center;margin-top: 20px;">未找到可用的服务网点</h4>
+</if>

@@ -1,0 +1,27 @@
+.server_main{
+	padding: 5px 5%;
+}
+.server_img{
+	padding: 5px 15% 10px 15%;
+	text-align: center;
+}
+.server_img h4{
+	font-size: 1.5rem;
+	margin:10px 0px;
+}
+.server_img_content img{
+	width: 100%;
+}
+.server_text{
+	font-size: 1.4rem;
+}
+.server_down{
+	width: 35px;
+	height: 15px;
+	text-align: center;
+	margin: 20px auto;
+
+}
+.server_down img{
+	width: 100%;
+}

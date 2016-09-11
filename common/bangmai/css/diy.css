@@ -1,0 +1,161 @@
+.topimg { width: 100% }
+.ui-btn {display:block;}
+.ui-loader {display:none;}
+.ui-btn .but {display:block; }
+.but {
+    box-sizing: border-box;
+    width: 100%;
+    background: #58a8ea;
+    color: #fff;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+    display: block;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    list-style: none;
+}
+
+.pl .fprint{padding: 0 0 0 15px; width: 25%;}
+
+.but1 {
+    display: block;
+    height: 45px;
+    line-height: 45px;
+    background: #58a8ea;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+.from-sellcar li.pr200{padding-right:160px;}
+.from-sellcar li.pr200 .text_inp{ margin-left:6px; padding:0 8px;}
+.from-sellcar li.pr200 .pr200_yzm{ width:80px; height:20px; position: absolute; right:60px; top:10px;}
+.from-sellcar li.pr200 .pr200_txt{height:22px; line-height:22px; color:#f60; position: absolute; right:10px; top:10px;}
+.from-sellcar li {
+    position: relative;
+    height: 44px;
+    padding: 6px 12px 6px 0 ;
+    border-bottom: 1px solid #E8E8E8;
+    background: #FEFEFE;
+    font-size:1.5rem;
+}
+.from-sellcar li.pl {
+    padding-left: 70px;
+}
+.from-sellcar li .pl-12 {
+    padding-left: 12px;
+}
+.from-sellcar li.pl-106 {
+    /* padding-left: 100px; */
+}
+.from-sellcar li.pl-134 {
+    padding-left: 134px;
+}
+.from-sellcar li.pr {
+    padding-right: 136px;
+}
+.from-sellcar li.pr62 {
+    padding-right: 62px;
+}
+.from-sellcar li.pr42 {
+    padding-right: 42px;
+}
+.from-sellcar .pl-more{
+    height:auto;
+}
+.from-sellcar .pl-more .info{
+    line-height: 32px;
+    font-size:1.1rem;
+    padding-left:12px;
+}
+.from-sellcar .tit {
+    position: absolute;
+    left: 12px ;
+    top: 6px ;
+    line-height: 32px ;
+    font-size: 1.5rem ;
+}
+.from-sellcar .infos{
+    position: absolute;
+    right: 12px ;
+    top: 6px ;
+    line-height: 32px ;
+    font-size: 1.5rem ;
+}
+.from-sellcar .sel-box{
+    display: inline-block;
+    width: 40%;
+    position: relative;
+}
+.from-sellcar select{
+    border: none;
+    width: 100%;
+    -webkit-appearance: none;
+    background:#fefefe;
+    height: 32px;
+    padding-left: 8px;
+    font-size: 1.5rem;
+    font-family: "\5FAE\8F6F\96C5\9ED1";
+    color: #D0D0D0 ;
+}
+.from-sellcar select.ta-c {
+    text-align: center;
+}
+.from-sellcar select.selected {
+    color:#f60;
+}
+.f-radio{
+    display:inline-block;
+    /* width: 25%; */
+    padding:0 15px;
+    line-height:44px;
+    margin-top:0px;
+    margin-bottom: 4px;
+    position: relative;
+}
+.f-radio-sel{
+    background-color:#F3F3F3;
+    color: #5380BB;
+}
+.f-radio-sel .icon{
+    position: absolute;
+    width: 17px;
+    height: 15px;
+    right: 0;
+    bottom: 0;
+    background: url("../images/icons.png") no-repeat scroll -50px -50px;
+    background-size: 100px auto;
+}
+.text {
+    width:100%;
+    padding:0 12px;
+    border: none;
+    font-size: 1.5rem;
+    font-family: "\5FAE\8F6F\96C5\9ED1";
+    height: 32px;
+    box-sizing: border-box;
+    font-size: 1.5rem;
+    color:#000;
+    border-radius: 5px;
+}
+div.text {
+    line-height:32px;
+    color:#D0D0D0;
+}
+div.text_org{
+    color:#f60;
+}
+
+
+.dialog-hd{width:100%;height:100%;background:#000;opacity:.7;filter:alpha(opacity=70);position:fixed;top:0;left:0;z-index:9999; color: #666;}
+
+.dialog-bd{ position: fixed; top: 20%; left: 5%; width: 90%; text-align: center; border-radius: 5px; background: #fff; z-index:10000;color: #666;}
+
+.dialog-bd .hd{ padding: 2em 0; border-bottom: 1px solid #dedede;color: #666;}
+
+.dialog-bd .bd{ padding: .8em 0; color: #666;}

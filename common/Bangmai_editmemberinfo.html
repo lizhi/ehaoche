@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>验证个人信息</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name='apple-mobile-web-app-capable' content="yes"/>
+    <link rel="stylesheet" type="text/css" href="{pigcms::RES}/bangmai/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="{pigcms::RES}/bangmai/css/editmemberinfo.css"/>
+    <link rel="stylesheet" type="text/css" href="{pigcms::RES}/bangmai/css/weui.min.css"/>
+
+    <script src="{pigcms::RES}/bangmai/js/jquery.js"></script>
+</head>
+<body>
+
+<input name="openid" value="{pigcms:$me.openid}" hidden/>
+<div class="weui_cells_title">验证手机号码</div>
+<div class="weui_cells weui_cells_form">
+    <div class="weui_cell weui_cell_select weui_select_before">
+        <div class="weui_cell_hd">
+            <select class="weui_select" name="dcode">
+                <option value="+86">+86</option>
+                <option value="+80">+80</option>
+                <option value="+84">+84</option>
+                <option value="+87">+87</option>
+            </select>
+        </div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <input class="weui_input" id="phone" name="phone" type="number" value="{pigcms:$me.phone}" pattern="[0-9]*"
+                   placeholder="请输入号码"/>
+        </div>
+        <div class="weui_cell_ft">
+            <button id="vcodeBtn" class="weui_btn weui_btn_mini weui_btn_plain_primary"> 立刻验证</button>
+        </div>
+    </div>
+    <div class="weui_cell weui_vcode" id="imgcodeCon">
+        <div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <input class="weui_input" type="number" id="verify" name="verify" placeholder="请输入图片验证码"/>
+        </div>
+        <div class="weui_cell_ft">
+            <i class="weui_icon_warn"></i>
+            <img onclick="this.src = '{pigcms:$imgcode}'" src="{pigcms:$imgcode}" />
+        </div>
+    </div>
+
+    <div class="weui_cell" id="vcodeCon" style="display: none;">
+        <div class="weui_cell_hd"><label class="weui_label">短信码</label></div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <input class="weui_input" id="vcode" name="vcode" type="number" value="" pattern="[0-9]*"
+                   placeholder="请输入短信验证码"/>
+        </div>
+        <div class="weui_cell_ft">
+            <i class="weui_icon_warn"></i>
+        </div>
+    </div>
+    <div class="weui_cell" id="alipayCon" style="display: none;">
+        <div class="weui_cell_hd"><label class="weui_label">支付宝</label></div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <input class="weui_input" id="alipay" name="alipay" value="{pigcms:$me.alipay}"
+                   placeholder="请输入支付宝账号"/>
+        </div>
+        <div class="weui_cell_ft">
+            <i class="weui_icon_warn"></i>
+        </div>
+    </div>
+</div>
+<div class="weui_cells_tips">* 如未收到验证码，可在60秒后再次发送</div>
+<div class="weui_cells_tips">* 您的信息将被保密，并且只需要验证一次</div>
+<div class="weui_cells_tips">* 手机验证通过后可编辑新的支付宝账号，请确保输入的支付宝账号正确无误，否则将无法顺利提现</div>
+
+<div class="weui_btn_area">
+    <button class="weui_btn weui_btn_primary" id="submit" style="display: none;">确定</button>
+</div>
+
+<div class="weui_dialog_alert" id="dialog2" style="display: none;">
+    <div class="weui_mask"></div>
+    <div class="weui_dialog">
+        <div class="weui_dialog_hd"><strong class="weui_dialog_title">温馨提示</strong></div>
+        <div class="weui_dialog_bd">弹窗内容，告知当前页面信息等</div>
+        <div class="weui_dialog_ft">
+            <a href="javascript:;" class="weui_btn_dialog primary">确定</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    const TIME = 60;
+    var c = TIME;
+    var vcodeBtn = $('#vcodeBtn');
+    var phone = $('#phone');
+    var vcode = $('#vcode');
+    var verify = $('#verify');
+    var alipay = $('#alipay');
+    function count() {
+        if (c == 0) {
+            vcodeBtn.removeClass('weui_btn_disabled weui_btn_default').addClass('weui_btn_plain_primary');
+            vcodeBtn.attr('disabled', false);
+            c = TIME;
+            vcodeBtn.text('立刻验证');
+            return;
+        }
+        var time = c + "秒后重发";
+        vcodeBtn.text(time);
+        c--;
+        setTimeout('count()', 1000);
+    }
+    vcodeBtn.click(function () {
+        phone.removeClass('weui_cell_warn');
+        $('#imgcodeCon').removeClass('weui_cell_warn');
+        if (!/1[35678][0-9][0-9]{8}/.test(phone.val())) {
+            if (phone.val().length != 0) {
+                phone.addClass('weui_cell_warn');
+            }
+            phone.focus();
+            return false;
+        }
+        $.post("{pigcms::U('Bangmai/msgVerify', array('token'=> $_GET['token']))}",
+                {
+                    phone: phone.val(),
+                    openid: "{pigcms:$openid}",
+                    verify: $('#verify').val()
+                },
+                function(data, status){
+                    if (data == "ok"){
+                        $('#vcodeCon').show();
+                        $('#alipayCon').show();
+                        $('#submit').show();
+                        phone.removeClass('weui_cell_warn');
+                        $('#imgcodeCon').removeClass('weui_cell_warn');
+                        vcodeBtn.removeClass('weui_btn_plain_primary').addClass('weui_btn_disabled weui_btn_default');
+                        vcodeBtn.attr('disabled', true);
+                        vcodeBtn.text('60秒后重发');
+                        vcode.focus();
+                        setTimeout('count()', 1000);
+                    }else if (data == "errimgcode"){
+                        $('#imgcodeCon').addClass('weui_cell_warn');
+                    }else{
+                        console.log(data);
+                        $('.weui_dialog_bd').html("系统繁忙，请稍后再试，谢谢!");
+                        $('#dialog2').show().on('click', '.weui_btn_dialog', function () {
+                            $('#dialog2').off('click').hide();
+                        });
+                    }
+                }
+        );
+    });
+    var submitBtn = $('#submit');
+    submitBtn.click(function () {
+        vcode.removeClass('weui_cell_warn');
+        $('#alipayCon').removeClass('weui_cell_warn');
+        if (!/^1[35678][0-9][0-9]{8}$/.test(phone.val())) {
+            if (phone.val().length != 0) {
+                phone.addClass('weui_cell_warn');
+            }
+            phone.focus();
+            return false;
+        }
+        if (!/^[0-9]{4}/.test(vcode.val())) {
+            if (vcode.val().length != 0) {
+                $('#vcodeCon').addClass('weui_cell_warn');
+            }
+            vcode.focus();
+            return false;
+        }
+        if (!/^[0-9]{4}/.test(verify.val())) {
+            if (verify.val().length != 0) {
+                $('#imgcodeCon').addClass('weui_cell_warn');
+            }
+            verify.focus();
+            return false;
+        }
+        if (alipay.val().length == 0){
+            $('#alipayCon').addClass('weui_cell_warn');
+            return false;
+        }
+        $.post("{pigcms::U('Bangmai/editmemberinfo', array('token'=> $_GET['token']))}",
+                {
+                    openid: "{pigcms:$openid}",
+                    phone: $('#phone').val(),
+                    vcode: $('#vcode').val(),
+                    verify: $('#verify').val(),
+                    alipay: $('#alipay').val()
+                },
+                function (data, status) {
+                    if (data == "ok"){
+                        $('.weui_dialog_bd').html('您的个人信息验证成功!');
+                        $('#dialog2').show().on('click', '.weui_btn_dialog', function () {
+                            $('#dialog2').off('click').hide();history.go(-1);
+                        });
+                    }else if (data == "errvcode") {
+                        $('#vcodeCon').addClass('weui_cell_warn');
+                    }else if (data == "errimgcode"){
+                        $('#imgcodeCon').addClass('weui_cell_warn');
+                    }else{
+                        console.log(data);
+                        $('.weui_dialog_bd').html("系统繁忙，请稍后再试，谢谢!");
+                        $('#dialog2').show().on('click', '.weui_btn_dialog', function () {
+                            $('#dialog2').off('click').hide();
+                        });
+                    }
+                }
+        );
+        return false;
+    });
+</script>
+</body>
+</html>

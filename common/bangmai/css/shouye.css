@@ -1,0 +1,223 @@
+.shouye_banner{
+	min-height: 200px;
+	width:100%;
+	position: relative;
+}
+.shouye_img{
+	width: 100%;
+	min-height: 200px;
+	z-index: -1;
+} 
+.shouye_banner p{
+	position: absolute;
+	color: #fefefe;
+	bottom: 80px;
+	text-align: center;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	font-size: 1.5rem;
+}
+.shouye_find{
+	padding: 5px 25px 10px 25px;
+	position: relative;
+}
+.shouye_input{
+	width: 86%;
+	position: absolute;
+	bottom: 50px;
+	left: 0px;
+	right: 0px;
+	margin: 0 auto;
+	height: 28px;
+	border-radius: 5px;
+	border: none;
+	line-height: 28px;
+	text-align: center;
+	color: #d9d9d9;
+	font-size: 1.3rem;
+}
+.shouye_input_img{
+	position: absolute;
+	bottom: 54px;
+	z-index: 99;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background-color: #fff;
+	padding: 0px 7px;
+	left: 50px;
+}
+.list_content{
+	padding: 10px;
+	position: relative;
+	border-bottom: 15px solid #FAFAFA;
+}
+.list_content ul{
+	overflow: auto;
+}
+.list_content li{
+	width: 22%;
+	margin-right: 4%;
+	text-align: center;
+	float: left;
+}
+.list_content li p{
+	text-align: center;
+	font-size: 1.3rem;
+	position: relative;
+	top: -5px;
+}
+.list_content li img{
+	width: 100%
+}
+.none_mar_r{
+	margin-right: 0px !important;
+}
+.shouye_banner2{
+	position: relative;
+	height: 175px;
+	border-bottom: 15px solid #FAFAFA;
+}
+.banner_main1{
+	width: 50%;
+	float: left;
+	height: 175px;
+	border-right: 1px solid #E9E9E9;
+	position: relative;
+}
+.banner_main2{
+	width: 48%;
+	float: left;
+	height: 175px;
+	position: relative;
+}
+.banner_main2_list1{
+	height: 87px;
+	border-bottom: 1px solid #E9E9E9;
+	position: relative;
+}
+.banner_main2_list2{
+	height: 87px;
+	position: relative;
+}
+.banner_main1_content{
+	padding: 10px 10px;
+	position: relative;
+	height: 100%;
+}
+.b_m1_1{
+	font-size: 1.5rem;
+}
+.b_m1_1 b{
+	font-weight: normal;
+	color: #54C2FD;
+}
+.car_img1{
+	width: 140px;
+	height: 70px;
+	position: absolute;
+	bottom: 50px;
+	left:20px;
+}
+.hot{
+	width: 25px;
+	height: 20px;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+.b_m2_1{
+	font-size: 1.2rem;
+	position: absolute;
+	right: 10px;
+	top:20px;
+}
+.b_m2_1 b{
+	font-weight: normal;
+	color: #54C2FD;
+}
+.jingbi{
+	width: 50px;
+	height: 40px;
+	position: absolute;
+	top: 25px;
+	left: 10px;
+}
+.b_m3_1{
+	font-size: 1.5rem;
+	position: absolute;
+	right: 20px;
+	top:20px;
+}
+.b_m3_1 b{
+	font-weight: normal;
+	color: #54C2FD;
+}
+.car_img2{
+	width: 80px;
+	height: 50px;
+	position: absolute;
+	top: 25px;
+	left: 20px;
+}
+.info_car{
+	border-bottom: 15px solid #fafafa;
+	overflow: auto;
+}
+.info_car h5{
+	margin: 0px 10px;
+	border-top: 2px solid #56B6E7;
+	line-height: 30px;
+	font-size: 1.4rem;
+	display: inline-block;
+}
+.h5_color{
+	color: #56B6E7;
+}
+.choose .choose_li_main{
+	border-bottom: 1px solid #ccc;
+	padding:10px 10px;
+	overflow: auto;
+}
+.choose_li li{
+	float: left;
+	width: 25%;
+	text-align: center;
+	font-size: 1.4rem;
+
+}
+.red-xiala{
+	width: 10px;
+	height: 10px;
+}
+.more{
+	padding: 20px 30px;
+}
+.more_main{
+	height: 30px;
+	line-height: 30px;
+	width: 100%;
+	background: #EDF8FD;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 1.5rem;
+}
+.shouye_footer{
+	border-top:1px solid #ccc;
+	background: #fff;
+	height: 60px;
+	text-align: center;
+	width: 100%;
+}
+.shouye_footer h4{
+	padding-top: 5px;
+}
+.shouye_footer p{
+	margin: 0 auto;
+	text-align: center;
+}
+.bord_bottom_none{
+	border-bottom: none !important;
+}

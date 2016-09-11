@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<head>
+    <meta charset="utf-8">
+    <title>会员权益</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <script src="{pigcms::RES}/bangmai/js/rem.js"></script>
+
+    <link rel="stylesheet" href="{pigcms::RES}/bangmai/css/app_reset.css">
+    <link rel="stylesheet" href="{pigcms::RES}/bangmai/css/main.css">
+    <link rel="stylesheet" href="{pigcms::RES}/bangmai/css/base.css">
+</head>
+<body>
+<div class="info-photo">
+    <div class="photo-bg" style="background-image:url({pigcms::RES}/bangmai/image/1.jpg)"></div>
+    <div class="color-bg"></div>
+    <div class="info">
+        <span>{pigcms:$shop.name}</span>
+        <span class="tip">会员</span>
+    </div>
+</div>
+
+<div class="shop-info">
+    <div class="add">
+        <span>介绍</span>
+        <i class="iconfont-all">&#xe605;</i>
+    </div>
+</div>
+
+<div class="wash-choose">
+    <ul>
+        <li>
+            <i class="iconfont-all">&#xe603;</i>
+            <span class="name">青铜会员</span>
+
+            <div class="price">
+                <span class="new-price">￥9.9</span>
+                <i class="iconfont-all no-get">&#xe607;</i>
+            </div>
+        </li>
+        <li>
+            <i class="iconfont-all">&#xe603;</i>
+            <span class="name">白银会员</span>
+
+            <div class="price">
+                <span class="new-price">￥49.9</span>
+                <i class="iconfont-all no-get">&#xe607;</i>
+            </div>
+        </li>
+        <li>
+            <i class="iconfont-all">&#xe603;</i>
+            <span class="name">黄金会员</span>
+
+            <div class="price">
+                <span class="new-price">￥99.9</span>
+                <i class="iconfont-all no-get">&#xe607;</i>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="submit-btn">
+    <div class="tip">
+        <div class="price">&nbsp;</div>
+        <p>成为会员享受会员权益</p>
+    </div>
+    <div class="bth">升级会员</div>
+    <!-- 提交表单,这里写了JS，这个表单的id="price"值会根据选择变化 -->
+    <form id="pay" action="{pigcms::U('Pay/wxpay')}" method="post">
+        <input type="hidden" name="price" id="price">
+        <input type="hidden" name="body" value="E好车-会员">
+        <input type="hidden" name="attach" value="MP">
+        <input type="hidden" name="goodsTag" value="WXG">
+    </form>
+</div>
+<script src="{pigcms::RES}/bangmai/js/fastclick.js"></script>
+<script src="{pigcms::RES}/bangmai/js/jquery.min.js"></script>
+<script src="{pigcms::RES}/bangmai/js/base.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    $('.bth').on('click', function(){
+        $('#pay').submit();
+    });
+</script>
+</body>
+</html>

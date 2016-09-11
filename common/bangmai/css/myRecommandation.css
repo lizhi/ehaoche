@@ -1,0 +1,124 @@
+body {
+    background: #ffffff;
+}
+
+.head {
+    position: relative;
+    height: 150px;
+    background-image: url(../image/head_bg.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.avatar {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80px;
+    height: 80px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.nickname {
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    font-size: 1em;
+    color: #ffffff;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 80px;
+    text-align: center;
+}
+.rcount{
+    position: absolute;
+    top: 45%;
+    right: 3%;
+    color: #ffffff;
+    font-size: 1.2em;
+}
+.rcount span{
+    color: gold;
+    font-size: 1.3em;
+}
+
+.refer{
+    position: absolute;
+    top: 20%;
+    right: 3%;
+    color: #ffffff;
+    font-size: 1.2em;
+    width: 160px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: right;
+}
+.refer span{
+
+}
+.refered {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.referItem {
+    position: relative;
+    width: 100%;
+    height: 60px;
+}
+
+.referItem img {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 4%;
+    margin-top: -25px;
+}
+
+.referNickname {
+     position: absolute;
+     left: 80px;
+     -ms-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+     overflow: hidden;
+     white-space: nowrap;
+     width: 200px;
+     font-size: 1.0em;
+     color: #000;
+ }
+
+.status {
+    position: absolute;
+    right: 5%;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 0.9em;
+    color: lightgray;
+}
+
+.referTime {
+    position: absolute;
+    top: 60%;
+    left: 80px;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 200px;
+    font-size: 0.7em;
+    color: #000;
+}
+hr{
+    border: none;
+    height: 1px;
+    background: #F0F5FF;
+    margin: 5px;
+}

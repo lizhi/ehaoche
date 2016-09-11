@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<head>
+    <meta charset="utf-8">
+    <title>门店详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <script src="{pigcms::RES}/bangmai/js/rem.js"></script>
+
+    <link rel="stylesheet" href="{pigcms::RES}/bangmai/css/app_reset.css">
+    <link rel="stylesheet" href="{pigcms::RES}/bangmai/css/main.css">
+    <link rel="stylesheet" href="{pigcms::RES}/bangmai/css/base.css">
+</head>
+<body>
+<div class="info-photo">
+    <div class="photo-bg" style="background-image:url('{pigcms:$shop.logourl}')"></div>
+    <div class="color-bg"></div>
+    <div class="info">
+        <span>{pigcms:$shop.name}</span>
+        <span class="tip">快修店</span>
+    </div>
+</div>
+
+<div class="shop-info">
+    <div class="add" onclick="jump({pigcms:$shop.latitude}, {pigcms:$shop.longitude})">
+        <span>{pigcms:$shop.address}</span>
+        <i class="iconfont-all">&#xe605;</i>
+    </div>
+    <div class="add">
+        <span class="time">营业时间: {pigcms:$shop.biztime}</span>
+        <a style="font-size: 1.25rem;position: absolute;right: 10px;color: #DF3348;" href="tel:{pigcms:$shop.tel}">
+            <i class="iconfont-all" >&#xe606;</i>
+        </a>
+    </div>
+</div>
+
+<div class="wash-choose">
+    <ul>
+        <volist name="biz" id="vo">
+            <li>
+                <i class="iconfont-all">&#xe603;</i>
+                <span class="name">{pigcms:$vo.name}</span>
+
+                <div class="price">
+                    <span class="old-price">￥{pigcms:$vo.old_price}</span>
+                    <span class="new-price">￥{pigcms:$vo.cur_price}</span>
+                    <i class="iconfont-all no-get">&#xe607;</i>
+                </div>
+            </li>
+        </volist>
+    </ul>
+</div>
+
+<div class="submit-btn">
+    <div class="tip">
+        <div class="price">&nbsp;</div>
+        <p>请确认完成服务后再付款</p>
+    </div>
+    <div class="bth">提交订单</div>
+    <!-- 提交表单,这里写了JS，这个表单的id="price"值会根据选择变化 -->
+    <form id="pay" action="{pigcms::U('Pay/wxpay')}" method="post">
+        <input type="hidden" name="price" id="price">
+        <input type="hidden" name="body" value="E好车-洗车">
+        <input type="hidden" name="attach" value="XC">
+        <input type="hidden" name="goodsTag" value="WXG">
+        <input type="hidden" name="shopid" value="{pigcms:$shop[id]}">
+    </form>
+</div>
+<script src="{pigcms::RES}/bangmai/js/fastclick.js"></script>
+<script src="{pigcms::RES}/bangmai/js/jquery.min.js"></script>
+<script src="{pigcms::RES}/bangmai/js/base.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    $('.bth').on('click', function(){
+        $('#pay').submit();
+    });
+    wx.config({
+        debug: false,
+        appId: '{pigcms:$appId}',
+        timestamp: '{pigcms:$timestamp}',
+        nonceStr: '{pigcms:$nonceStr}',
+        signature: '{pigcms:$signature}',
+        jsApiList: [
+            'openLocation'
+        ]
+    });
+
+    function jump(lat, lon) {
+        wx.openLocation({
+            latitude: lat, // 纬度，浮点数，范围为90 ~ -90
+            longitude: lon, // 经度，浮点数，范围为180 ~ -180。
+            name: '', // 位置名
+            address: '', // 地址详情说明
+            scale: 28, // 地图缩放级别,整形值,范围从1~28。默认为最大
+            infoUrl: '' // 在查看位置界面底部显示的超链接,可点击跳转
+        });
+    }
+</script>
+</body>
+</html>

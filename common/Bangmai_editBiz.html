@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>业务编辑</title>
+    <meta name="viewport" content="width=device-width, user-scalable=0"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name='apple-mobile-web-app-capable' content="yes"/>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script src="{pigcms::RES}/bangmai/js/jquery.js"></script>
+    <style>
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            background: floralwhite;
+        }
+
+        .content {
+            width: 100%;
+        }
+
+        .bizInfo {
+            width: 100%;
+            position: relative;
+            font-size: 1.5rem;
+            background: white;
+            border: 1px solid lightgray;
+            box-shadow: 0 0 10px 3px lightgray;
+            margin-top: 20px;
+        }
+
+        .item {
+            position: relative;
+            height: 2.5rem;
+            margin: -1px 15px 20px;
+        }
+
+        .divider {
+            border: none;
+            border-bottom: 1px solid lightgray;
+            margin: 0;
+            padding: 0;
+        }
+
+        .item1 {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .item2 {
+            position: absolute;
+            right: 0;
+            display: inline-block;
+        }
+
+        .remark {
+            position: relative;
+            width: 100%;
+            margin-top: 15px;
+            margin-bottom: 100px;
+            border: 1px solid lightgray;
+            background: white;
+            box-shadow: 0 0 10px 3px lightgray;
+        }
+
+        .remarkLabel {
+            margin-top: 15px;
+            margin-left: 15px;
+            display: block;
+            font-size: 1.5rem;
+
+        }
+
+        .remarkInfo {
+            width: 90%;
+            height: 100px;
+            font-size: 1.5rem;
+            border: 1px solid black;
+            margin: 10px 15px;
+        }
+
+        .status {
+            margin: 15px;
+            position: relative;
+            font-size: 1.5rem;
+            height: 2rem;
+            margin-bottom: 25px;
+        }
+
+        .status1 {
+            position: absolute;
+            left: 5%;
+        }
+
+        .status2 {
+            position: absolute;
+            left: 40%;
+        }
+
+        .status3 {
+            position: absolute;
+            right: 5%;
+        }
+
+        .infoLabel {
+            margin-top: 15px;
+            margin-left: 15px;
+            font-size: 1.5rem;
+            display: block;
+        }
+
+        .infoSent {
+            width: 90%;
+            height: 70px;
+            font-size: 1.5rem;
+            border: 1px solid black;
+            margin: 10px 15px;
+        }
+
+        .tip {
+            margin: -10px 15px 0 0;
+            font-size: 1.5rem;
+            color: red;
+            text-align: right;
+        }
+
+        .pay {
+            margin-top: 0px;
+            margin-right: 15px;
+            font-size: 1.5rem;
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        #pay {
+            font-size: 1.5rem;
+            width: 10rem;
+        }
+
+        .submitBtn {
+            width: 100%;
+            height: 45px;
+            line-height: 40px;
+            background: #54C2FD;
+            border: 2px solid #54C2FD;
+            text-align: center;
+            color: #fafafa;
+            font-size: 2rem;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="bizInfo">
+        <div class="item">
+            <p class="item1">订单号：</p>
+
+            <p class="item2">{pigcms:$biz.order_id}</p>
+        </div>
+        <hr class="divider"/>
+        <div class="item">
+            <p class="item1">业务：</p>
+
+            <p class="item2">{pigcms:$biz.name}</p>
+        </div>
+
+        <hr class="divider"/>
+        <div class="item"><p class="item1">状态：</p>
+
+            <p class="item2">
+                <if condition="$biz.status eq 0">进行中</if>
+                <if condition="$biz.status eq 1">已完成</if>
+                <if condition="$biz.status eq 2">已中止</if>
+            </p>
+        </div>
+        <hr class="divider"/>
+        <div class="item">
+            <p class="item1">提交人：</p>
+
+            <p class="item2">{pigcms:$biz.nickname}</p>
+        </div>
+
+        <hr class="divider"/>
+        <div class="item">
+            <p class="item1"> 电话：</p>
+
+            <p class="item2">{pigcms:$biz.telphone}</p>
+        </div>
+
+        <hr class="divider"/>
+        <div class="item">
+            <p class="item1">直接推荐人：</p>
+
+            <p class="item2">{pigcms:$biz.referee1}</p>
+        </div>
+
+        <hr class="divider"/>
+        <div class="item">
+            <p class="item1">间接推荐人：</p>
+
+            <p class="item2">{pigcms:$biz.referee2}</p>
+        </div>
+
+        <hr class="divider"/>
+        <div class="item">
+            <p class="item1">提交时间：</p>
+
+            <p class="item2"> {pigcms:$biz.submit_time}</p>
+        </div>
+
+        <hr class="divider"/>
+        <div class="item">
+            <p class="item1">完成时间：</p>
+
+            <p class="item2"> {pigcms:$biz.close_time}</p>
+        </div>
+
+        <if condition="$biz.amount neq 0">
+            <hr class="divider"/>
+            <div class="item">
+                <p class="item1">提现金额：</p>
+
+                <p class="item2" style="color: red;;">{pigcms:$biz.amount}</p>
+            </div>
+
+            <hr class="divider"/>
+            <div class="item">
+                <p class="item1">支付宝：</p>
+
+                <p class="item2" style="color: red;;">{pigcms:$biz.alipay}</p>
+            </div>
+
+            <else/>
+
+            <hr class="divider"/>
+            <div class="item">
+                <p class="item1">总佣金：</p>
+
+                <p class="item2" style="color: red;;"> {pigcms:$biz.pay}</p>
+            </div>
+
+            <hr class="divider"/>
+            <div class="item">
+                <p class="item1">1级推荐分成：</p>
+
+                <p class="item2" style="color: red;;"> {pigcms:$biz.pay1}</p>
+            </div>
+
+            <hr class="divider"/>
+            <div class="item">
+                <p class="item1">2级推荐分成：</p>
+
+                <p class="item2" style="color: red;;"> {pigcms:$biz.pay2}</p>
+            </div>
+            <hr class="divider"/>
+            <div class="item">
+                <p class="item1">3级推荐分成：</p>
+
+                <p class="item2" style="color: red;;"> {pigcms:$biz.pay3}</p>
+            </div>
+        </if>
+    </div>
+
+    <div class="remark">
+        <label class="remarkLabel" for="remark">业务进展：</label>
+
+        <textarea id="remark" name="business" class="remarkInfo"
+                  placeholder="没有输入业务进展"
+        <if condition="$biz.status neq 0">style="border:none" readonly</if>
+        >{pigcms:$biz.business}</textarea>
+
+
+        <if condition="$biz.status eq 0">
+            <if condition="$biz.amount eq null">
+            <label class="infoLabel" for="infoSent">订单提醒信息：</label>
+
+            <textarea id="infoSent" name="infoSent" class="infoSent"
+                      placeholder="输入需要发送给推荐人的提示信息"></textarea>
+                </if>
+            <div class="status">
+                <label class="status1"><input name="status" type="radio" value="0" checked/>进行中</label>
+                <label class="status2"><input name="status" type="radio" value="1"/>已完成</label>
+                <label class="status3"><input name="status" type="radio" value="2"/>已中止</label>
+            </div>
+
+            <p class="tip"></p>
+
+
+            <div class="pay" hidden>
+                <if condition="$biz.amount neq null">
+                佣金：<input id="pay" placeholder="请输入金额" value="1"/>元
+                    <else/>
+                    佣金：<input id="pay" placeholder="请输入金额" value="0"/>元
+                </if>
+            </div>
+            <button class="submitBtn" id="subBtn" hidden>提交修改</button>
+        </if>
+
+
+    </div>
+
+</div>
+<script>
+    amount = "{pigcms:$biz.amount}";
+    s = "{pigcms:$biz.status}";
+    if (s == "0") {
+        var btn = $("#subBtn");
+        btn.show();
+        btn.click(function () {
+            $(".tip").text("");
+
+            var status = $("input:radio:checked").val();
+            if (status == 1) {
+                var pay = $.trim($('#pay').val());
+                if (pay.length == 0) {
+                    $(".tip").text('请输入金额');
+                    return;
+                }
+                var preg = /^[1-9]+[0-9]*$/;
+                if (!preg.test(pay)) {
+                    $(".tip").text('错误的金额');
+                    return;
+                }
+            }
+
+            $.post("{pigcms::U('Bangmai/editBiz', array('token'=>$_GET['token']))}",
+                    {
+                        "id": "{pigcms:$biz.id}",
+                        "business": $.trim($("#remark").val()),
+                        'bizCode': "{pigcms:$biz.code}",
+                        "status": $("input:radio:checked").val(),
+                        "infoSent": $.trim($("#infoSent").val()),
+                        'pay': pay
+                    },
+                    function (data, status) {
+                        if (data == "ok") {
+                            $(".tip").text("已更新业务数据");
+                            $("#infoSent").val("");
+                            if (0 != $("input:radio:checked").val()) {
+                                $("textarea").attr('disabled', true);
+                                $("input").attr('disabled', true);
+                                $('#subBtn').hide();
+                            }
+                        } else {
+                            $(".tip").text(data);
+                        }
+                    }
+            );
+        });
+
+        $('.status1').click(function () {
+            $('.pay').hide();
+            $(".tip").text("");
+        });
+        $('.status2').click(function () {
+            if (!amount){
+                $('.pay').show();
+            }
+        });
+        $('.status3').click(function () {
+            $('.pay').hide();
+            $(".tip").text("");
+        });
+    }
+
+
+</script>
+</body>
+</html>

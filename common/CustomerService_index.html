@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>门店列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <script src="{pigcms::RES}/bangmai/js/rem.js"></script>
+
+    <link rel="stylesheet" href="{pigcms::RES}/bangmai/css/app_reset.css">
+    <link rel="stylesheet" href="{pigcms::RES}/bangmai/css/main.css">
+    <link rel="stylesheet" href="{pigcms::RES}/bangmai/css/base.css">
+</head>
+<body>
+<div class="main">
+    <div class="nav">
+        <nav class="wash-nav">
+            <ul>
+                <a href="javascript:;">
+                    <li>
+                        <span>天河区</span>
+                        <i class="iconfont-all">&#xe601;</i>
+                    </li>
+                </a>
+                <a href="javascript:;">
+                    <li>
+                        <span>距离优先</span>
+                        <i class="iconfont-all">&#xe601;</i>
+                    </li>
+                </a>
+                <a href="javascript:;">
+                    <li>
+                        <span>价格优先</span>
+                        <i class="iconfont-all">&#xe601;</i>
+                    </li>
+                </a>
+            </ul>
+            <!-- 下拉列表 -->
+            <div class="add-choose">
+                <ul>
+                    <a href="">
+                        <li><span>越秀区</span><span class="num">123</span></li>
+                    </a>
+                    <a href="">
+                        <li><span>荔湾区</span><span class="num">123</span></li>
+                    </a>
+                    <a href="">
+                        <li><span>海珠区</span><span class="num">123</span></li>
+                    </a>
+                    <a href="">
+                        <li><span>天河区</span><span class="num">123</span></li>
+                    </a>
+                    <a href="">
+                        <li><span>白云区</span><span class="num">123</span></li>
+                    </a>
+                    <a href="">
+                        <li><span>黄浦区</span><span class="num">123</span></li>
+                    </a>
+                    <a href="">
+                        <li><span>番禺区</span><span class="num">123</span></li>
+                    </a>
+                    <a href="">
+                        <li><span>花都区</span><span class="num">123</span></li>
+                    </a>
+                    <a href="">
+                        <li><span>增城市</span><span class="num">123</span></li>
+                    </a>
+                    <a href="">
+                        <li><span>从化市</span><span class="num">123</span></li>
+                    </a>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="wash-list">
+        <ul id="list">
+            <li><h4>正在获取列表</h4></li>
+        </ul>
+    </div>
+
+    <div class="cover-window"></div>
+    <script src="{pigcms::RES}/bangmai/js/fastclick.js"></script>
+    <script src="{pigcms::RES}/bangmai/js/jquery.min.js"></script>
+    <script src="{pigcms::RES}/bangmai/js/base.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>
+        wx.config({
+            debug: false,
+            appId: '{pigcms:$appId}',
+            timestamp: '{pigcms:$timestamp}',
+            nonceStr: '{pigcms:$nonceStr}',
+            signature: '{pigcms:$signature}',
+            jsApiList: [
+                'getLocation'
+            ]
+        });
+
+        wx.ready(function(){
+            wx.getLocation({
+                type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+                success: function (res) {
+                    var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+                    var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+                    $.post("http://pinaster.top/index.php?g=Wap&m=CustomerService&a=index&token={pigcms:$_GET[token]}",
+                            {
+                           lat: latitude,
+                           lon: longitude
+                       },
+                       function (data, status) {
+                           if (status == 'success'){
+                               $('#list').html(data);
+                           }else{
+                               $('#list').html('<li><h4>未能找到附近的洗车店</h4></li>')
+                           }
+
+                       }
+                    );
+                }
+            });
+        });
+
+    </script>
+</div>
+
+</body>
+</html>

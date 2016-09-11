@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>预约看车</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name='apple-mobile-web-app-capable' content="yes"/>
+    <link rel="stylesheet" type="text/css" href="{pigcms::RES}/bangmai/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="{pigcms::RES}/bangmai/css/sf.css"/>
+    <script src="{pigcms::RES}/bangmai/js/jquery.js"></script>
+</head>
+<body>
+<div class="main">
+    <div class="header">
+        <!--<img src="{pigcms::RES}/bangmai/image/back-white.png" class="back" onclick="history.go(-1)"/>-->
+        <span>{pigcms:$carinfo['name']}</span>
+    </div>
+    <!--<div class="sf_img">-->
+        <!--<img src="{pigcms::RES}/bangmai/image/banner.png"/>-->
+    <!--</div>-->
+    <!--<p class="sf_text"> 我们的购车顾问将给您致电介绍“0首付”产品，请注意接听。</p>-->
+    <!--<form action="{pigcms::U('Bangmai/add', array('type'=>'secondhandcar','carid'=>$carinfo['id'], 'token'=> $_GET['token'], 'openid'=>$openid))}"-->
+          <!--method="post" onsubmit="return check_moblie()">-->
+    <div class="sf_content">
+        <h2 style="text-align: center;margin-bottom: 15px;"> 原价：{pigcms:$carinfo['price']}万</h2>
+        <div class="sf_input">
+            <!--<label for="price" >意向价(万)：</label>-->
+            <input id="price" type="text" name="price" placeholder="请输入您的意向价" value=""/>
+        </div>
+        <p id="alert1" style="font-size: 2rem;color: red;text-align: center;" hidden><small>请输入正确的意向价格(1-9999)</small></p>
+        <div class="sf_input">
+            <!--<label for="telphone" >手机：</label>-->
+            <input id="telphone" type="text" name="telphone" placeholder="请输入您的联系方式" value=""/>
+        </div>
+        <p id="alert2" style="font-size: 2rem;color: red;text-align: center;" hidden><small>请输入正确的手机号码</small></p>
+        <button id="subbtn" class="sf_button" type="submit">提交</button>
+    </div>
+    <!--</form>-->
+</div>
+<script type="text/javascript">
+    $(function () {
+//        $('.sf_button').find('input').on('click', function () {
+//            $(this).css('background', '#fff');
+//            $(this).css('color', '#5CB7E8');
+//            //check_moblie();
+//        })
+
+
+        var title_len = $('.header').find('span').text().trim().length;
+        var title_sub = $('.header').find('span').text().trim().substring(0, 17);
+        if (title_len > 17) {
+            $('.header').find('span').html(title_sub + '...');
+        }
+    })
+    //正则表达——检查手机号码是否正确
+    function check_moblie() {
+        var sf_input = $('#telphone').val();
+        var telReg = !!sf_input.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/);
+        if (telReg == false) {
+            $("#alert2").show();
+            $('#telphone').focus();
+            $('.sf_button').find('input').css('background', '#5CB7E8');
+            $('.sf_button').find('input').css('color', '#fefefe');
+            return false;
+        } else {
+            //下一步操作在这里，你自己跳转相关页面
+            //alert('手机号码输入正确');
+            $("#alert2").hide();
+            return true;
+        }
+    }
+
+    function check_price(){
+        var price = $("#price").val();
+        var prcReg = !!price.match(/^([1-9])([0-9])?([0-9])?([0-9])?$/);
+        if (prcReg == false) {
+            $("#alert1").show();
+            $('#price').focus();
+            $('.sf_button').find('input').css('background', '#5CB7E8');
+            $('.sf_button').find('input').css('color', '#fefefe');
+            return false;
+        } else {
+            $("#alert1").hide();
+            return true;
+        }
+    }
+
+    $('#subbtn').click(function(){
+        if (!check_price() || !check_moblie()){
+            return;
+        }
+        $.post("{pigcms::U('Bangmai/add', array('type'=>'secondhandcar','carid'=>$carinfo['id'], 'token'=> $_GET['token'], 'openid'=>$openid))}",
+                {
+                    price: $('#price').val(),
+                    telphone: $("#telphone").val()
+                },
+                function(data, status){
+                    if (data=="ok"){
+                        alert("提交成功!");
+                        history.go(-1);
+                    }else{
+                        alert("系统繁忙，请稍后再试，谢谢!");
+                    }
+                });
+    });
+</script>
+</body>
+</html>

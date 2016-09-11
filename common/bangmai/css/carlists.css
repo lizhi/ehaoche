@@ -1,0 +1,299 @@
+.class2B{
+  position: fixed;
+  right: 0;
+  top: 44px;
+  left: 0;
+  overflow: auto;
+  z-index: 10;
+  max-height: 75%;
+}
+
+.class3{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  top: 44px;
+  left: 0;
+  z-index: 10;
+
+}
+
+.tit{border-bottom:1px solid #D9D9D9;height:44px;background:#fff; position: fixed;top: 0;width: 100%;left: 0 ;z-index: 9}
+.tit img{ width: 50%;}
+
+.opacityDiv{ filter:alpha(opacity=66); opacity: 0.66;z-index: 9;height: 100%;width: 100%;min-height: 1000px;position: fixed;margin-top: 44px;
+  background-color: rgb(244, 244, 244); }
+
+.ln-nav{border-bottom:1px solid #D9D9D9;height:44px;background:#fff; position: fixed;top: 0;width: 100%;left: 0 ;z-index: 9}
+.ln-nav a{display:block;height:44px;float:left;line-height:44px;width:100%;text-align:center;background:url(http://ruming.wnoon.com/tpl/Wap/default/common/bangmai/images/gb.png) no-repeat right bottom;color:#333;}
+.ln-nav a{background-size:15px 15px;}
+.ln-nav a:hover{background:#eee;color:#0E9BFD;background:url(http://ruming.wnoon.com/tpl/Wap/default/common/bangmai/images/zk.png) no-repeat right bottom;text-decoration:none;}
+.ln-nav a:hover{background-size:15px 15px;}
+#a2_neirong{background:#fff;margin-bottom:10px;}
+#a3_neirong{background:#fff;margin-bottom:10px;}
+#a3_neirong ul li a{display:block;padding:0 20px;height:40px;border-bottom:1px solid #d9d9d9;line-height:40px;}
+#a1_neirong{background:#fff;margin-bottom:10px;}
+#a1_neirong ul li a{display:block;padding:0 20px;height:40px;border-bottom:1px solid #d9d9d9;line-height:40px;}
+/* 列表页 主筛选钮样式更新 */
+.ln-nav .class1 {
+  position: relative;
+  background: none !important;
+}
+.ln-nav .class1 span {
+  padding-right: 5px;
+}
+.ln-nav .class1 i {
+  position: absolute;
+  display: block;
+  width: 8px;
+  height: 8px;
+  top: 19px;
+  right: 10px;
+  background-image: url(http://ruming.wnoon.com/tpl/Wap/default/common/bangmai/images/arrows_down.png);
+  background-size: 50px 50px;
+  background-position: -1px -10px;
+}
+.ln-nav .class1:hover,
+.ln-nav .class1.slided {
+  color: #0e9bfd;
+}
+.ln-nav .class1:hover i,
+.ln-nav .class1.slided i {
+  background-position: -12px -10px;
+}
+
+.ln-nav .class1.order1 i {
+  top: 18px;
+  background-position: -1px -20px;
+}
+.ln-nav .class1.hidei1 i {
+  display: none;
+}
+.ln-nav .class1.order1:hover i,
+.ln-nav .class1.order1.slided i {
+  background-position: -12px -20px;
+}
+
+.ln-nav .class1.no-hover {
+  color: #333;
+}
+.ln-nav .class1.no-hover i {
+  background-position: -1px -10px;
+}
+.ln-nav .class1.order1.no-hover {
+  color: #333;
+}
+.ln-nav .class1.order1.no-hover i {
+  background-position: -1px -20px;
+}
+
+.zm-t{display:block;height:40px;line-height:40px;padding:0 20px;}
+.car-pr li a{display:block;height:40px;padding:0 10px;line-height:40px;border-bottom:1px solid #d9d9d9;background:#fff;color:#808080;}
+.car-pr li a:hover{text-decoration:none;}
+.car-zr ul{padding:0 5px;}
+.car-zr ul li{float:left;width:30.8%;padding:10px 1.5% 0 1%;font-size:12px;}
+.car-zr ul li a{display:block;width:100%;height:30px;line-height:30px;margin:0 auto;border-radius: 3px;text-align:center;border:1px solid #d9d9d9;background:#fff;color:#808080;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.car-zr ul li a:hover{text-decoration:none;}
+.c-i{width:29px;height:21px;position:relative;top:6px;padding-right: 8px;vertical-align: baseline;}
+.unlimited {display: block;height: 40px;padding: 10px 0 10px 20px;color: #4d4d4d;background: #f5f5f5;font-weight: bold;}
+.zm-brand{border-top:1px solid #D8D8D8;border-bottom:1px solid #D8D8D8;margin-top:10px;padding:10px 0 10px 0;background:#fff;}
+.zm-brand ul li{float:left;padding:5px;}
+.zm-brand ul li a{border:1px solid #D8D8D8;display:block;width:30px;height:30px;border-radius: 100px;text-align:center;line-height:30px;}
+.zm-brand b{padding:5px 0 10px 10px;display:block;}
+/**/
+.search-triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 5.5px 5px 5.5px;
+  border-color: transparent transparent #787878 transparent;
+  float: left;
+  margin-left: 45%;
+}
+.else-brand-triangle {
+  margin: -30px 0 0 20px;
+}
+.search-list ul li {
+  position: relative;
+}
+.search-list ul li .badge {
+  position: absolute;
+  left: 2px;
+  display: block;
+  width: 61px;
+  height: 40px;
+  z-index: 9;
+}
+.search-list ul li .badge img {
+  width: 61px;
+  height: 40px;
+}
+.search-list ul li a {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  overflow: hidden;
+}
+.search-list ul li a.list-image-box {
+  background-color: #e2e2e5;
+  line-height: 0em;
+}
+.search-list ul li a .slides .slide {
+  display: block;
+  float: left;
+  width: 0;
+  min-height: 214px;
+}
+.search-list ul li a .slides .slide .loading {
+  width: 116px;
+  height: 38px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -58px;
+  margin-top: -19px;
+  visibility: hidden;
+}
+.search-list ul li a .slides .slide img {
+  position: absolute;
+  z-index: 1;
+}
+.search-list ul li a .slides img {
+  z-index: 1;
+}
+.search-list ul li a .slide-pagination {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -32px;
+}
+.search-list ul li a .price {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  height: 28px;
+  line-height: 28px;
+  width: 94px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 0.75em;
+  text-align: center;
+  z-index: 1;
+}
+.search-list ul li a .price strong {
+  line-height: 28px;
+  font-size: 1.50em;
+  padding: 0 2px 0 1px;
+}
+.search-list ul li a .promo {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 20px;
+  line-height: 20px;
+  width: 86px;
+  background-image: url("http://static.renrenche.com/dist/webapp/images/promo-tag-84071991.png");
+  color: white;
+  font-size: 0.75em;
+  text-align: center;
+  z-index: 1;
+}
+.search-list ul li a .last-slide {
+  display: block;
+  position: relative;
+}
+.search-list ul li a .last-slide .slide-notice {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  z-index: 1;
+  background-image: linear-gradient(right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+}
+.search-list ul li a .last-slide .slide-notice span {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -6em;
+  color: white;
+  font-size: 0.8125em;
+  width: 1.5em;
+  line-height: 1.25em;
+  text-align: center;
+}
+.search-list ul li a .last-slide .slide-notice span img {
+  position: static;
+}
+.search-list ul li .list-text {
+  display: block;
+  padding:0px 0px 15px 10px;
+  
+}
+.search-list ul li .list-text .cartitle {
+  font-size: 1.1em;
+  color: #333333;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.search-list ul li .list-text .basic {
+  padding-top: 0.00em;
+  font-size: 0.8em;
+  color: #999999;
+}
+.search-list ul li .list-text .basic .search-city {
+  font-size: 1em;
+  color: #999;
+  display: block;
+  position: absolute;
+  line-height: 20px;
+  margin-left: 5px;
+  top: 36px;
+  right: 20px;
+}
+.search-list ul li .list-text .tags {
+  font-size: 12px;
+  line-height: 17px;
+  text-align: center;
+  margin: 8px 10px 0 0;
+  padding: 0 6px;
+  border-width: 1px;
+  border-style: solid;
+  float: left;
+}
+.search-list ul li .list-text:after {
+  clear: both;
+}
+.search-list .list-end {
+  padding: 20px 0;
+  font-size: 0.8em;
+  text-align: center;
+  color: #999999;
+}
+.search-list .not-found {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.search-list .not-found h4 {
+  padding-top: 5px;
+}
+.search-list .not-found .tel-button {
+  margin-top: 10px;
+  display: block;
+  width: 60%;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 auto;
+  text-align: center;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  text-decoration: none;
+  background-color: #e14800;
+  font-size: 1.125em;
+}

@@ -1,0 +1,175 @@
+
+
+body{
+  background:#F8F8F8;
+}
+
+.h1_black{
+  font-size: 30px;
+  font-family: 微软雅黑;
+  color: #333333;
+}
+
+.h1_blue{
+  font-size: 30px;
+  font-family: 微软雅黑;
+  color: #54c2fd;
+}
+
+.h2_black{
+  font-size: 26px;
+  color: #333333;
+  font-family: 微软雅黑;
+}
+
+.h2_blue{
+  font-size: 26px;
+  color: #54c2fd;
+  font-family: 微软雅黑;
+}
+
+.h3_black{
+  font-size: 24px;
+  color: #333333;
+  font-family: 微软雅黑;
+}
+
+.h3_blue{
+  font-size: 24px;
+  color: #54c2fd;
+  font-family: 微软雅黑;
+}
+
+@media all and (max-width: 640px){
+  .banner-text{
+    font-family: 微软雅黑;
+    font-size: 20px;
+    color: #FFFFFF;
+  }
+
+  .banner-form{
+    position: relative;
+    top: -90px;
+  }
+
+  #keyimg{
+    position: relative;
+    left: 30%;
+    top: -90px;
+  }
+
+}
+
+@media all and (max-width: 320px){
+  .banner-text{
+    font-family: 微软雅黑;
+    font-size: 18px;
+    color: #FFFFFF;
+  }
+
+  .banner-form{
+    position: relative;
+    top: -80px;
+  }
+
+  #keyimg{
+    position: relative;
+    left: 25%;
+    top: -20px;
+  }
+
+}
+
+
+#keyword{
+  font-size: 24px;
+  font-family: 微软雅黑;
+}
+
+
+.search-form{
+
+}
+
+.service-part{
+  background: #FFFFFF;
+  padding-top: 30px;
+}
+
+.service_img{
+  width: 60px;
+  height: 60px;
+}
+
+.service_desc{
+  font-family: 微软雅黑;
+  font-size: 24px;
+  color: #333333;
+}
+
+
+
+.body1{
+  margin-top: 20px;
+  background: #FFFFFF;
+}
+
+.body1 .col1{
+  border-right: ridge 3px #F8F8F8;
+}
+
+
+.body1 #img1{
+  width: 312px;
+  height: 149px;
+  margin-top: 15px;
+}
+
+.body1 #img2{
+  margin-top: 30px;
+}
+
+.body1 #img3{
+  padding-top: 30px;
+}
+
+.highlight{
+  border-top: solid 2px deepskyblue;
+  padding-top: 15px;
+}
+
+.carlist{
+  background: #FFFFFF;
+  border-top: ridge 1px #F8F8F8;
+  border-bottom: ridge 1px #F8F8F8;
+  margin: 0px;
+}
+
+.carimg{
+  width: 234px;
+  height: 160px;
+}
+
+.cardesc1{
+  padding-left: 15px;
+}
+
+.cardesc2{
+  padding-left: 15px;
+  font-size: 15px;
+  color: #666666;
+  font-family: 微软雅黑;
+}
+
+.cardesc3{
+  padding-left: 15px;
+  font-size: 24px;
+  color: #FF0000;
+  font-family: 微软雅黑;
+}
+
+a{
+  text-decoration: none;
+  color: #000;
+  display: block;
+}
